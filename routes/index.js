@@ -55,7 +55,7 @@ const crypto = require("crypto");
                 }
                 else {
                     req.flash("You have registered! Login to your account");
-                    res.redirect("/lgoin");
+                    res.redirect("/login");
                     
                 }
             });
