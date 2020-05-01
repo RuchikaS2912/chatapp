@@ -25,21 +25,15 @@ const crypto = require("crypto");
 
     router.post("/register",(req,res)=>{
         console.log(req.body);
-        if (req.body.password !== req.body.repassword) 
-        {
-            req.flash('error','passwords don\'t match');
-            return res.redirect('back');
-        }
-      
-        
-        {
+        console.log("reallly");
+        // if (req.body.password !== req.body.repassword) 
+        // {
+        //     req.flash('error','passwords don\'t match');
+        //     return res.redirect('back');
+        // }
             User.register(new User ({
-                name:req.body.name,
-                companyname:req.body.companyname,
+                
                 username:req.body.email,
-                adlayout:req.body.adlayout,
-                targetaudience:req.body.targetaudience,
-                theme:req.body.theme,
               }),req.body.password, function (err, user) {
                 if (err) {
                     if (err.name === "UserExistsError") {
@@ -59,7 +53,7 @@ const crypto = require("crypto");
                     
                 }
             });
-        }
+        
     })
 
 

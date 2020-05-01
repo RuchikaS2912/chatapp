@@ -5,15 +5,15 @@ import "./header.css";
 class Header extends Component {
 	render() {
 		return (
-			<div class="header flex-100">
-				<div class="styling flex-70">
+			<div className="header flex-100">
+				<div className="styling flex-70">
 					<Link to="/">Webchat</Link>
 				</div>
-				<div class="profiles flex-30">
-					<div class="bordering">
+				<div className="profiles flex-30">
+					<div className="bordering">
 						<Link to="/login">Login</Link>
 					</div>
-					<div class="bordering">
+					<div className="bordering">
 						<Link to="/signup">Signup</Link>
 					</div>
 				</div>

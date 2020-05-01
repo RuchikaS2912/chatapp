@@ -11,28 +11,28 @@ var userSchema=new mongoose.Schema({
    
     name:{
         type:String,
-        required:true
+        
     },
     
     username:{
         type:String,
-        required:true
+       
     },
     companyname:{
         type:String,
-        required:true
+        
     },
     adlayout:{
         type:String,
-        required:true
+
     },
     theme:{
         type:String,
-        required:true
+       
     },
     targetaudience:{
         type:String,
-        required:true
+        
     },
     date:{
         type:Date,

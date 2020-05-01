@@ -1,7 +1,12 @@
 import React, {Component} from "react";
 import Header from "./../pageHeader/header";
 import Footer from "./../pageFooter/footer";
+import axios from 'axios';
+
 import "./signup.css";
+
+
+console.log("ki");
 
 class SignupPage extends Component{
 	constructor(props) {
@@ -33,6 +38,7 @@ class SignupPage extends Component{
 	}
 
 	handlePassword(evt) {
+		
 		this.setState({
 			password: evt.target.value
 		});
@@ -46,6 +52,8 @@ class SignupPage extends Component{
 
 	handleSubmitClick(evt) {
 		evt.preventDefault();
+		
+		console.log(this.state);
 
 		if(!this.state.email) {
 			return this.setState({
@@ -65,16 +73,34 @@ class SignupPage extends Component{
 			});
 		}
 
+		const newUser = {
+			
+			email: this.state.email,
+			password: this.state.password,
+		  };
+		  console.log(newUser);
+	  
+
+		  axios
+		  .post('http://localhost:4100/register', newUser)
+		  .then(() => console.log('Book Created'))
+		  .catch(err => {
+			console.error(err);
+		  });
+	
+
 		return this.setState({
 			error: ""
 		});
+
+
 	}
 
 	render() {
 		return (
 			<div>
 				<Header />
-				<div class ="padding bordering col-md-6 col-md-offset-3">
+				<div className ="padding bordering col-md-6 col-md-offset-3">
 					<form>
 						<div>
 						{
@@ -84,19 +110,19 @@ class SignupPage extends Component{
 							</h3>
 						}
 						</div>
-						<div class="pad">
-							<label class="left-email">Email address</label>
-							<input type="text" id="email" placeholder="Enter Email" value={this.state.email} onChage={this.handleEmail} />
+						<div className="pad">
+							<label className="left-email">Email address</label>
+							<input type="text" id="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleEmail} />
 						</div>
-						<div class="pad">
+						<div className="pad">
 							<label class="left-password">Password</label>
 							<input type="password" id="password" placeholder="Password" value={this.state.password} onChange={this.handlePassword}/>
 						</div>
-						<div class="pad">
-							<label class="left-confirm-password">Confirm Password</label>
+						<div className="pad">
+							<label className="left-confirm-password">Confirm Password</label>
 							<input type="password" id="confirmPassword" placeholder="Confirm Password" value={this.state.confirmPassword} onChange={this.handleConfirmPassword} />
 						</div>
-						<div class="button">
+						<div className="button">
 							<button type="submit" onClick={this.handleSubmitClick} >Signup</button>
 						</div>
 					</form>
