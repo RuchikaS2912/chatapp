@@ -5,7 +5,7 @@ const flash = require('connect-flash');
 const mongoose=require('mongoose');
 var config=require('./config/database');
 const bodyparser=require("body-parser");
-
+var cors=require("cors");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
@@ -36,6 +36,10 @@ app.use(function (req, res, next) {
 });
 
 
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+}));
 
 
 
@@ -43,12 +47,12 @@ app.use(function (req, res, next) {
 
 
 
+// app.use(express.static(path.join(__dirname,'public')));
+// app.set('view engine','ejs');
 
-app.use(express.static(path.join(__dirname,'public')));
-app.set('view engine','ejs');
-
-app.set('views', path.join(__dirname, 'views'));
-app.use(bodyparser.urlencoded({ extended: true }));
+// app.set('views', path.join(__dirname, 'views'));
+app.use(express.json());
+app.use(bodyparser.urlencoded({ extended: false }));
 
 
 const index=require('./routes/index.js');
