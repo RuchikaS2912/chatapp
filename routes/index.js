@@ -37,19 +37,16 @@ const crypto = require("crypto");
               }),req.body.password, function (err, user) {
                 if (err) {
                     if (err.name === "UserExistsError") {
-                        req.flash('error',"User Already Exists");
-                        return res.redirect('back');
+                        return res.send("User Already Exists");
                     
                     }
                     else {
                         console.log(err);
-                        req.flash("error", "Oops we messed up! Try Again");
-                        return res.redirect('back');
+                        return res.send("Oops we messed up! Try Again");
                     }
                 }
                 else {
-                    req.flash("You have registered! Login to your account");
-                    res.redirect("/login");
+                    res.send("You have registered! Login to your account");
                     
                 }
             });

@@ -4,9 +4,9 @@ import Footer from "./../pageFooter/footer";
 import axios from 'axios';
 
 import "./signup.css";
+let msg="";
 
 
-console.log("ki");
 
 class SignupPage extends Component{
 	constructor(props) {
@@ -25,6 +25,8 @@ class SignupPage extends Component{
 		this.dismissError = this.dismissError.bind(this);
 	}
 
+	
+	 
 	dismissError() {
 		this.setState({
 			error: ""
@@ -78,19 +80,18 @@ class SignupPage extends Component{
 			email: this.state.email,
 			password: this.state.password,
 		  };
-		  console.log(newUser);
-	  
-
-		  axios
-		  .post('http://localhost:4100/register', newUser)
-		  .then(() => console.log('Book Created'))
-		  .catch(err => {
-			console.error(err);
-		  });
+			  
+		  
+	async function makePostRequest() {
+    let res = await axios.post('http://localhost:4100/register', newUser);
+	console.log(res.data);
+	msg=res.data;
 	
+  }
+	makePostRequest();
 
 		return this.setState({
-			error: ""
+			error: msg
 		});
 
 
