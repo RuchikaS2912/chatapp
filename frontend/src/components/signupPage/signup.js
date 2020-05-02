@@ -116,7 +116,7 @@ class SignupPage extends Component{
 							<input type="text" id="email" placeholder="Enter Email" value={this.state.email} onChange={this.handleEmail} />
 						</div>
 						<div className="pad">
-							<label class="left-password">Password</label>
+							<label className="left-password">Password</label>
 							<input type="password" id="password" placeholder="Password" value={this.state.password} onChange={this.handlePassword}/>
 						</div>
 						<div className="pad">

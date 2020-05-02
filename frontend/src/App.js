@@ -6,6 +6,7 @@ import MainPage from "./components/mainPage/main";
 import NotPageFound from "./components/errorPage/404";
 import LoginPage from "./components/loginPage/login";
 import SignupPage from "./components/signupPage/signup";
+import ForgotPassword from "./components/forgotPassword/forgotPassword";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route exact path="/login" component={LoginPage} />
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/404" component={NotPageFound} />
+          <Route exact path="/forgotPassword" component={ForgotPassword} />
           <Redirect to="/404" />
         </Switch>
       </Router>
