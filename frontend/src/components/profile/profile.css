@@ -1,0 +1,16 @@
+.color{
+	background-color: #d9e6f2;
+}
+
+.leftSideBarParent{
+	float: left;
+	position: relative;
+	margin: 3vw;
+	width: 18%;
+}
+
+.bordering{
+	margin: 1vw;
+	border-style: solid;
+	border-width: 0.1vw;
+}
