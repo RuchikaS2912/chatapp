@@ -30,7 +30,7 @@ class ForgotPassword extends Component{
 			});
 		}
 
-		//if email exists in the database send the reset password link to email
+		
 	}
 
 	render(){
