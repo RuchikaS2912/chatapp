@@ -18,6 +18,22 @@ const crypto = require("crypto");
     // password:req.body.password,
 
 
+
+
+    router.get('/', (req, res, next) => {
+
+        console.log('===== user!!======')
+        console.log(req.user)
+        if (req.user) {
+            res.json({ user: req.user })
+        } else {
+            res.json({ user: null })
+        }
+    })
+
+
+  
+
     router.get("/register",(req,res)=>{
         res.render("register.ejs");
     })
@@ -46,7 +62,7 @@ const crypto = require("crypto");
                     }
                 }
                 else {
-                    res.send("You have registered! Login to your account");
+                    res.send("Success");
                     
                 }
             });
@@ -62,22 +78,21 @@ const crypto = require("crypto");
 
 
     router.post('/login', function (req, res, next) {
+        console.log(req.body);
         passport.authenticate('local', function (err, user, info) {
             if (err) {
                 console.log(err);
-                return next(err);
+                return res.sendStatus(401);
             }
             if (!user) {
-                console.log("not exist");
-                req.flash("error","does not exist");
-                return res.redirect('back');
+                return res.sendStatus(401);
             }
             req.logIn(user, function (err) {
                 if (err) {
-                    return next(err);
+                    return res.sendStatus(401);
                 }
                 user.save();
-                return res.redirect("/");
+                return res.send(user);
             });
         })(req, res, next);
     });
