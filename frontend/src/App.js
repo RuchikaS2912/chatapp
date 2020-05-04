@@ -7,6 +7,7 @@ import NotPageFound from "./components/errorPage/404";
 import LoginPage from "./components/loginPage/login";
 import SignupPage from "./components/signupPage/signup";
 import ForgotPassword from "./components/forgotPassword/forgotPassword";
+import Dashboard  from "./components/Dashboard/dashboard";
 import axios from 'axios'
 
 class App extends Component {
@@ -41,7 +42,7 @@ class App extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user
+          user: response.data.user
         })
       } else {
         console.log('Get user: no user');
@@ -57,11 +58,15 @@ class App extends Component {
     return(
       <Router>
         <Switch>
-          <Route exact path="/" component={MainPage}/>
+        <Route exact path="/" render={() =>
+            <MainPage
+              
+            />} />
           <Route exact path="/login" render={() =>
             <LoginPage
               updateUser={this.updateUser}
             />} />
+            <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/404" component={NotPageFound} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
