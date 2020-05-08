@@ -111,7 +111,7 @@ class SignupPage extends Component {
 			return (
 				<div>
 					<Header />
-					<div className="padding bordering col-md-6 col-md-offset-3">
+					<div className="pad_sign border_sign col-md-6 col-md-offset-3">
 						<form>
 							<div>
 								{

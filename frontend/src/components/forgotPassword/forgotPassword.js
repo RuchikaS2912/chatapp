@@ -37,7 +37,7 @@ class ForgotPassword extends Component{
 		return (
 			<div>
 				<Header />
-				<div className="bordering padding">
+				<div className="border_forgot pad_forgot">
 					<form>
 						<div className="pad">
 							<label className="right_email">Email</label>

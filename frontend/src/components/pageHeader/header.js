@@ -5,11 +5,11 @@ import "./header.css";
 class Header extends Component {
 	render() {
 		return (
-			<div className="header flex-100">
-				<div className="styling flex-70">
+			<div className="header">
+				<div className="styling">
 					<Link to="/">Webchat</Link>
 				</div>
-				<div className="profiles flex-30">
+				<div className="profiles">
 					<div className="bordering">
 						<Link to="/login">Login</Link>
 					</div>

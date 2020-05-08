@@ -1,0 +1,88 @@
+.leftSideBarParent{
+	float: left;
+	margin: -1vw 1vw 0vw 5vw;
+	width: 20%;
+	background-color: white;
+}
+
+.border_profile{
+	border-color: #b2beb5;
+	border-style: solid;
+	border-width: 0vw 0vw 0.1vw 0vw;
+	padding: 1vw 0vw 1vw 2vw;
+}
+
+.border_payment{
+	border-color: #b2beb5;
+	border-style: solid;
+	border-width: 0vw 0vw 0.1vw 0vw;
+	padding: 1vw 0vw 1vw 2vw;
+	/*display: inline-flex;*/
+}
+
+.display{
+	display: flex;
+}
+
+.adjustment{
+	margin: 1vw 1vw 0vw 0vw;
+}
+
+.border_issues{
+	border-color: #b2beb5;
+	border-style: solid;
+	border-width: 0vw 0vw 0.1vw 0vw;
+	padding: 1vw 0vw 1vw 2vw;
+}
+
+.border_mySearches{
+	border-color: #b2beb5;
+	border-style: solid;
+	border-width: 0vw 0vw 0.1vw 0vw;
+	padding: 1vw 0vw 1vw 2vw;
+}
+
+.border_contact{
+	margin-left: 2vw;
+	margin-top: 15vw;
+	border-color: #b2beb5;
+	border-style: solid;
+	border-width: 0vw 0vw 0.01vw 0vw;
+}
+
+.border_privacy{
+	margin-left: 2vw;
+}
+
+.border_icons{
+	padding: 0.5vw;
+	border-color: #b2beb5;
+	border-style: solid;
+	border-width: 0.1vw 0.1vw 0.1vw 0.1vw;
+}
+
+.margin_icons{
+	margin-left: 2vw;
+}
+
+.special_bordering{
+	padding: 0.5vw;
+	border-color: #b2beb5;
+	border-style: solid;
+	border-width: 0.1vw 0.1vw 0.1vw 0.1vw;
+	background-color: skyblue;
+	margin-left: 1vw;
+}
+
+.normal_bordering{
+	padding: 0.5vw;
+	border-color: #b2beb5;
+	border-style: solid;
+	border-width: 0.1vw 0.1vw 0.1vw 0.1vw;
+	margin-left: 1vw;
+}
+
+.margin_close_icons{
+	margin: 1vw;
+}
+

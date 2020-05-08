@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import "./profile.js";
-import {createBrowserHistory as history} from 'history';
+// import {createBrowserHistory as history} from 'history';
 
 class Profile extends Component{
 	constructor(props){

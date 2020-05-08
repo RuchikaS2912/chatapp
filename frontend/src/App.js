@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 // import logo from './logo.svg';
 // import './App.css';
 import MainPage from "./components/mainPage/main";
@@ -7,15 +7,12 @@ import NotPageFound from "./components/errorPage/404";
 import LoginPage from "./components/loginPage/login";
 import SignupPage from "./components/signupPage/signup";
 import ForgotPassword from "./components/forgotPassword/forgotPassword";
-//<<<<<<< basic_profile
 import Profile from "./components/profile/profile";
 import Payment from "./components/payment/payment";
 import Issues from "./components/issues/issues";
 import MySearches from "./components/mySearches/mySearches";
-=======
 import Dashboard  from "./components/Dashboard/dashboard";
 import axios from 'axios'
-//>>>>>>> master
 
 class App extends Component {
 

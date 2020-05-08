@@ -106,7 +106,7 @@ class LoginPage extends Component {
 		return (
 			<div>
 				<Header />
-				<div className="bordering padding">
+				<div className="border_login pad_login">
 					<form>
 						<div>
 							{

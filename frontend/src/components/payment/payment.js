@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./payment.css";
 
 class Payment extends Component{
 	constructor(props){
