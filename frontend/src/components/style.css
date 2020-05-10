@@ -1,0 +1,15 @@
+.first,
+.second{
+    /* width: 50%; */
+    /* background-color: lightgrey; */
+    font-family: arial;
+    margin-left: 30px;
+    height: 80%;
+    padding: 5px 10px 10px 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+#b,#small{
+    text-align:'center';
+}
