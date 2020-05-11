@@ -12,6 +12,7 @@ import Payment from "./components/payment/payment";
 import Issues from "./components/issues/issues";
 import MySearches from "./components/mySearches/mySearches";
 import Dashboard  from "./components/Dashboard/dashboard";
+import newadd from "./components/newadd/newadd"
 import axios from 'axios'
 
 class App extends Component {
@@ -51,15 +52,20 @@ class App extends Component {
       } else {
         console.log('Get user: no user');
         this.setState({
-          loggedIn: false,
+          loggedIn: false, 
           user: null
         })
       }
     })
   }
 
+
   render() {
     return(
+      <div>
+hello {JSON.stringify(this.state.user)}
+
+     
       <Router>
         <Switch>
         <Route exact path="/" render={() =>
@@ -70,7 +76,12 @@ class App extends Component {
             <LoginPage
               updateUser={this.updateUser}
             />} />
-            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/dashboard" render={() =>
+            <Dashboard
+              
+            />} />
+            
+            <Route exact path="/newadd" component={newadd} />
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/404" component={NotPageFound} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
@@ -81,6 +92,7 @@ class App extends Component {
           <Redirect to="/404" />
         </Switch>
       </Router>
+      </div>
     );
   }
 }

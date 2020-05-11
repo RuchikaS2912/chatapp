@@ -104,6 +104,9 @@ const crypto = require("crypto");
 
 
 
+
+
+
     router.post('/forgot', function (req, res, next) {
         async.waterfall([
             function (done) {
@@ -219,7 +222,29 @@ const crypto = require("crypto");
         });
     });
     
+ 
+     
     
+
+    router.post("/newadd",(req,res)=>{
+        console.log(req.body);
+        console.log(req.user);
+       User.findOneAndUpdate(
+            {"_id":req.user._id},
+            {$push: {"adds": {heading: req.body.heading, subheading:req.body.subHeading,descp:req.body.description,cost:req.body.cost}}},
+            {safe: true, upsert: true, new: true},
+            function(err, model){
+               if (err){
+                 console.log("ERROR: ", err);
+                 res.sendStatus(500, err);
+               }else{
+                 res.sendStatus(200);
+               }
+              }
+            );
+    })
+   
+
 
 
 

@@ -1,34 +1,35 @@
-const mongoose=require('mongoose');
-const Schema=mongoose.Schema;
-const postitemSchema= new mongoose.Schema({
+// const mongoose=require('mongoose');
+// const Schema=mongoose.Schema;
+// const postitemSchema= new mongoose.Schema({
    
-    user:{
-        type:Schema.Types.ObjectId,
-        ref:'users'
-    },
-
-    titleofad:{
-        type:String,
-        required:true
-    },
-    file:{
-       type:String
+    
+//     titleofad:{
+//         type:String,
+        
+//     },
+//     subheading:{
+//        type:String
        
-    },
+//     },
     
-    content:{
-        type:String,
-        require:true
-    },
+//     content:{
+//         type:String,
+        
+//     },
     
-    date:{
-        type:Date,
-        default:Date.now()
-    },
-    time:{
-        type:Date,
-        default:Date.now()
-    }
+//     date:{
+//         type:Date,
+//         default:Date.now()
+//     },
+//     time:{
+//         type:Date,
+//         default:Date.now()
+//     },
+
+//     cost:{
+//         type:String
+
+//     }
     
-});
-const Post=module.exports=mongoose.model("Post",postitemSchema);
+// });
+// const Post=module.exports=mongoose.model("Post",postitemSchema);
