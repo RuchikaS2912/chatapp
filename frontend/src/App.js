@@ -7,7 +7,11 @@ import NotPageFound from "./components/errorPage/404";
 import LoginPage from "./components/loginPage/login";
 import SignupPage from "./components/signupPage/signup";
 import ForgotPassword from "./components/forgotPassword/forgotPassword";
-import Profile from "./components/profile/profile";
+
+// import Profile from "./components/profile/profile";
+import ResponsiveDrawer from './components/Sidebar/ResponsiveDrawer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Payment from "./components/payment/payment";
 import Issues from "./components/issues/issues";
 import MySearches from "./components/mySearches/mySearches";
@@ -85,7 +89,7 @@ hello {JSON.stringify(this.state.user)}
           <Route exact path="/signup" component={SignupPage} />
           <Route exact path="/404" component={NotPageFound} />
           <Route exact path="/forgotPassword" component={ForgotPassword} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile" component={ResponsiveDrawer} />
           <Route exact path="/payment" component={Payment} />
           <Route exact path="/issues" component={Issues} />
           <Route exact path="/mySearches" component={MySearches} />
