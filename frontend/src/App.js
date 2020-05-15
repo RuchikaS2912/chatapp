@@ -13,7 +13,7 @@ import ResponsiveDrawer from './components/Sidebar/ResponsiveDrawer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Payment from "./components/payment/payment";
-import Issues from "./components/issues/issues";
+import Issues from "./components/issues/SideDrawer";
 import MySearches from "./components/mySearches/mySearches";
 import Dashboard  from "./components/Dashboard/dashboard";
 import newadd from "./components/newadd/newadd"
