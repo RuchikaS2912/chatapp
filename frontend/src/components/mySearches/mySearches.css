@@ -86,3 +86,33 @@
 	margin: 1vw;
 }
 
+.pad_details{
+	padding: 1vw 2vw 1vw 2vw;
+}
+
+.pad_address{
+	padding:  1vw 0vw 1vw 0vw;
+}
+
+.border_heading{
+	border-color: #d3d3d3;
+	border-style: solid;
+	border-width: 0vw 0.01vw 0vw 0vw;
+	align-items: center;
+}
+
+.pad_food{
+	padding: 1vw 0vw 1vw 2vw;
+}
+
+.flex_props{
+	display: flex;
+	justify-content: space-between;
+}
+
+.border_rent{
+	border-style: solid;
+	border-width: 0vw 0vw 0vw 0.01vw;
+	border-color: #d3d3d3;
+	padding-left: 5vw;
+}

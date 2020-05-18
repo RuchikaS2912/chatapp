@@ -6,7 +6,7 @@ export default class MyUploader extends Component {
     render() {
         return (
             <div>
-                <FilePond allowMultiple={true} server="http://localhost:3000"/>
+                <FilePond allowMultiple={true} server="http://localhost:3000/issues"/>
             </div>
         )
     }

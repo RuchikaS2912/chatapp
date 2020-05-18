@@ -14,3 +14,59 @@
 	border-style: solid;
 	border-width: 0.1vw;
 }
+
+.pad_id{
+	padding-left: 2vw;
+}
+
+.pad_amount{
+	padding-left: 1vw;
+}
+
+.pad_issues{
+	padding-left: 90%;
+}
+
+.border_details{
+	border-width: 0vw 0vw 0vw 0.01vw;
+	border-color: #d3d3d3;
+	border-style: solid;
+	align-items: center;
+	padding: 3vw;
+}
+
+.border_download{
+	border-width: 0vw 0.01vw 0vw 0vw;
+	border-color: #d3d3d3;
+	border-style: solid;
+	align-items: center;	
+}
+
+.margin_right{
+	margin-right: 2vw;
+}
+
+.margin_download{
+	margin: 3vw;
+}
+
+.flex_props{
+	display: flex;
+	justify-content: space-between;
+}
+
+.pad_details{
+	padding: 1vw;
+}
+
+.flex_deposit{
+	flex: 0 75%;
+}
+
+.pad_payment{
+	padding-left: 2vw;
+}
+
+.pad_deposit{
+	padding-right: 1vw;
+}
