@@ -17,6 +17,7 @@ import Issues from "./components/issues/SideDrawer";
 import MySearches from "./components/mySearches/mySearches";
 import Dashboard  from "./components/Dashboard/dashboard";
 import newadd from "./components/newadd/newadd"
+
 import axios from 'axios'
 
 class App extends Component {
@@ -67,7 +68,7 @@ class App extends Component {
   render() {
     return(
       <div>
-hello {JSON.stringify(this.state.user)}
+
 
      
       <Router>
