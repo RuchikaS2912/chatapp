@@ -1,10 +1,12 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Header from "./../pageHeader/header";
 import Footer from "./../pageFooter/footer";
 import "./forgotPassword.css";
+import axios from 'axios';
+let msg = ""
 
-class ForgotPassword extends Component{
-	constructor(props){
+class ForgotPassword extends Component {
+	constructor(props) {
 		super(props);
 		this.state = {
 			email: "",
@@ -15,25 +17,50 @@ class ForgotPassword extends Component{
 		this.handleSubmitClick = this.handleSubmitClick.bind(this);
 	}
 
-	handleEmail(evt){
+	handleEmail(evt) {
 		this.setState({
 			email: evt.target.value
 		});
 	}
 
-	handleSubmitClick(evt){
+	handleSubmitClick(evt) {
 		evt.preventDefault();
 
-		if(!this.state.email){
+		if (!this.state.email) {
 			this.setState({
 				error: "Enter Email"
 			});
 		}
 
-		
+
+
+		axios
+			.post('/forgot', {
+				email: this.state.email,
+			})
+			.then(response => {
+				console.log('login response: ')
+				console.log(response)
+				if (response.status === 200) {
+					console.log(response.data);
+					// update the state to redirect to home
+					this.setState({
+						redirectTo: '/'
+					})
+				}
+
+			}).catch(error => {
+				console.log('login error: ')
+				console.log(error);
+
+				msg = "error";
+				console.log(msg);
+
+			})
 	}
 
-	render(){
+
+	render() {
 		return (
 			<div>
 				<Header />
@@ -41,7 +68,7 @@ class ForgotPassword extends Component{
 					<form>
 						<div className="pad">
 							<label className="right_email">Email</label>
-							<input type="email" onChange={this.handleEmail} value={this.state.email} placeholder="Enter Email" /> 
+							<input type="email" onChange={this.handleEmail} value={this.state.email} placeholder="Enter Email" />
 						</div>
 						<div className="button">
 							<button type="submit" onClick={this.handleSubmitClick}>Submit</button>

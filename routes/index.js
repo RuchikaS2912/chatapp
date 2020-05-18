@@ -34,9 +34,9 @@ const crypto = require("crypto");
 
   
 
-    router.get("/register",(req,res)=>{
-        res.render("register.ejs");
-    })
+    // router.get("/register",(req,res)=>{
+    //     res.render("register.ejs");
+    // })
 
 
     router.post("/register",(req,res)=>{
@@ -72,9 +72,9 @@ const crypto = require("crypto");
 
 
 
-    router.get("/login",(req,res)=>{
-        res.render("login.ejs");
-    })
+    // router.get("/login",(req,res)=>{
+    //     res.render("login.ejs");
+    // })
 
 
     router.post('/login', function (req, res, next) {
@@ -108,6 +108,7 @@ const crypto = require("crypto");
 
 
     router.post('/forgot', function (req, res, next) {
+        console.log("forgot");
         async.waterfall([
             function (done) {
                 crypto.randomBytes(20, function (err, buf) {
