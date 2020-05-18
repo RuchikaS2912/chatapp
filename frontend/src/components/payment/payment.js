@@ -1,18 +1,182 @@
-import React, {Component} from "react";
-import "./payment.css";
+import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
+import Hidden from '@material-ui/core/Hidden';
+import IconButton from '@material-ui/core/IconButton';
+import FlagIcon from '@material-ui/icons/Flag';
+import PaymentIcon from '@material-ui/icons/Payment';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import MenuIcon from '@material-ui/icons/Menu';
+import Toolbar from '@material-ui/core/Toolbar';
+import SearchIcon from '@material-ui/icons/Search';
+import {Col,Image} from 'react-bootstrap';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import oil from '../../images/oil.jpg';
+import '../style.css'
+import PendingPayments from './PendingPayments';
+import SuccessfulPayments from './SuccessfulPayments';
+    // import ProfileIcon from '../ProfileIcon';
+    const drawerWidth = 240;
 
-class Payment extends Component{
-	constructor(props){
-		super(props);
-	}
+    const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+    },
+    drawer: {
+        [theme.breakpoints.up('sm')]: {
+        width: drawerWidth,
+        flexShrink: 0,
+        },
+    },
+    appBar: {
+        [theme.breakpoints.up('sm')]: {
+        width: `calc(100% - ${drawerWidth}px)`,
+        marginLeft: drawerWidth,
+        },
+    },
+    menuButton: {
+        marginRight: theme.spacing(2),
+        [theme.breakpoints.up('sm')]: {
+        display: 'none',
+        },
+    },
+    
+    toolbar: theme.mixins.toolbar,
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+    },
+    }));
 
-	render() {
-		return (
-			<div>
-				<h1>Welcome to Payment Page!!!</h1>
-			</div>
-		);
-	}
-}
+    function Issues(props) {
+    const { window } = props;
+    const classes = useStyles();
+    const theme = useTheme();
+    const [mobileOpen, setMobileOpen] = React.useState(false);
 
-export default Payment;
+    const handleDrawerToggle = () => {
+        setMobileOpen(!mobileOpen);
+    };
+
+    const handleIssues = () => {
+    	return window.location.replace("http://localhost:3000/issues");
+    }
+
+    const drawer = (
+        <div>
+        <div className={classes.toolbar} />
+        <Col xs={6} md={4}>
+            {/* <ProfileIcon style={{width:'70%'}}/> */}
+            <Image className="center" src={oil} alt="Profile Image" style={{width:'150%',borderRadius:'50%',margin:'30px',marginTop:'0'}}/>
+
+        </Col>
+        <b style={{margin:'60px'}}>Shabeer Majeed</b><br/>
+        <small style={{margin:'60px'}}><b>Cocoon ID:</b>24FD43</small>
+        <Divider />
+        <List>
+            {['Payment'].map((text, index) => (
+            <ListItem button key={text}>
+                <ListItemIcon><PaymentIcon /></ListItemIcon>
+                <ListItemText primary={text} />
+            </ListItem>
+            ))}
+        </List>
+        <Divider />
+        <List>
+            {['Issues'].map((text, index) => (
+            <ListItem button key={text}>
+                <ListItemIcon><FlagIcon /></ListItemIcon>
+                <ListItemText primary={text} />
+            </ListItem>
+            ))}
+        </List>
+        <Divider />
+        <List>
+            {['My Searches'].map((text, index) => (
+            <ListItem button key={text}>
+                <ListItemIcon><SearchIcon /></ListItemIcon>
+                <ListItemText primary={text} />
+            </ListItem>
+            ))}
+        </List>
+        <Divider />
+        </div>
+    );
+
+    const container = window !== undefined ? () => window().document.body : undefined;
+
+    return (
+        <div className={classes.root}>
+        <CssBaseline />
+        <AppBar position="fixed" className={classes.appBar} style={{variant:'light'}}>
+        
+            <Toolbar>
+            <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className={classes.menuButton}
+            >
+                <MenuIcon />
+            </IconButton>
+            </Toolbar>
+        </AppBar>
+        
+        <nav className={classes.drawer} aria-label="mailbox folders">
+            <Hidden smUp implementation="css">
+            <Drawer
+                container={container}
+                variant="temporary"
+                anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                classes={{
+                paper: classes.drawerPaper,
+                }}
+                ModalProps={{
+                keepMounted: true, 
+                }}
+            >
+                {drawer}
+            </Drawer>
+            </Hidden>
+            <Hidden xsDown implementation="css">
+            <Drawer
+                classes={{
+                paper: classes.drawerPaper,
+                }}
+                variant="permanent"
+                open
+            >
+                {drawer}
+            </Drawer>
+            </Hidden>
+        </nav>
+        
+        <main className={classes.content}>
+            <div className={classes.toolbar} />
+            <p className="d-flex justify-content-between">
+            	<b>PENDING PAYMENTS</b>
+            	<span className="d-flex justify-content-end" onClick ={handleIssues} >
+            		<FlagIcon />
+          			Raise an issue
+        		</span>
+            </p>
+            <PendingPayments /><br></br>
+            <p><b>SUCCESS PAYMENTS</b></p>
+            <SuccessfulPayments />
+        </main>
+        </div>
+    );
+    }
+
+    export default Issues;
