@@ -3,6 +3,26 @@ import {Form,Row,Col,Button,Card} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyUploader from './MyUploader';
 export default class FormDrop extends Component {
+    state = { bio: '' };
+constructor () {
+    super();
+    this.state = {
+        category:'',
+        subcategory:'',
+        exactissue:'',
+    };
+    this.handleChange = this.handleChange.bind(this);
+}
+
+
+  handleChange (evt) {
+    this.setState({ [evt.target.name]: evt.target.value });
+  }
+
+  handleBioChange = (e) => {
+    const bio = e.target.value;
+    this.setState({ bio });
+  };
     render() {
         return (
             <div>
@@ -12,7 +32,7 @@ export default class FormDrop extends Component {
                         <Row responsive>
                             <Col  xs={6} md={4}>
                             <Form.Group controlId="exampleForm.ControlSelect1">
-                                <Form.Control as="select" placeholder="Category">
+                                <Form.Control as="select" name="category" placeholder="Category" onChange={this.handleOnChange}>
                                 <option value="">Category</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -24,7 +44,7 @@ export default class FormDrop extends Component {
                             </Col>
                             <Col  xs={6} md={4}>
                             <Form.Group controlId="exampleForm.ControlSelect1">
-                                <Form.Control as="select">
+                                <Form.Control as="select" name="subcategory"  onChange={this.handleOnChange}>
                                 <option value="">Sub-Category</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -36,7 +56,7 @@ export default class FormDrop extends Component {
                             </Col>
                             <Col xs={6} md={4}>
                             <Form.Group controlId="exampleForm.ControlSelect1">
-                                <Form.Control as="select">
+                                <Form.Control as="select" name="exactissue" onChange={this.handleOnChange}>
                                 <option value="">Exact Issue</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -50,13 +70,10 @@ export default class FormDrop extends Component {
                         <Row>
                             <Col xs={6} md={4}>
                                 <Form.Group controlId="exampleForm.ControlTextarea1">
-                                    <Form.Control as="textarea" placeholder={"Can you elaborate more on the issue"} rows="3" />
+                                    <Form.Control as="textarea" placeholder={"Can you elaborate more on the issue"} rows="3" onChange={this.handleBioChange}/>
                                 </Form.Group>
                             </Col>
                             <Col xs={6} md={4}>
-                            {/* <Form.File id="formcheck-api-regular">
-                                <Form.File.Input />
-                            </Form.File> */}
                             <MyUploader/>
                             </Col>
                             <Col>
