@@ -1,9 +1,39 @@
-import React from 'react';
+import React,{Component} from 'react';
 import {Form,Button,Col} from 'react-bootstrap';
 import MainPart from './MainPart';
 // import ProfileIcon from './ProfileIcon';
 import './style.css';
-export default function Formfield() {
+export default class Formfield from Component {
+     constructor () {
+    super();
+    this.state = {
+        profession:'',
+        company:'',
+        working:'',
+        hobbies:'',
+        fullname:'',
+        telephone:'',
+        relationship: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.onHandleTelephoneChange = this.onHandleTelephoneChange.bind(this);
+  }
+
+  handleChange (evt) {
+    this.setState({ [evt.target.name]: evt.target.value });
+  }
+
+    onHandleTelephoneChange = e => {
+        let telephone = e.target.value;
+
+        if (!Number(telephone)) {
+            return;
+        }
+        this.setState({
+            [e.target.name]: telephone
+        });
+    };
+
     return (
         <div>
             <div className="main-div">
@@ -17,24 +47,24 @@ export default function Formfield() {
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>Profession</Form.Label>
-                <Form.Control type="text" placeholder="UI designer" />
+                <Form.Control type="text" name="profession" placeholder="UI designer" onChange={this.handleOnChange} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>Company</Form.Label>
-                <Form.Control type="text" placeholder="Grab House"/>
+                <Form.Control type="text" name="company" placeholder="Grab House" onChange={this.handleOnChange}/>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridZip">
                 <Form.Label>Working Since</Form.Label>
-                <Form.Control type="text" placeholder="23 Jul 2015"/>
+                <Form.Control type="text" name='working' placeholder="23 Jul 2015" onChange={this.handleOnChange}/>
                 </Form.Group>
             </Form.Row>
             
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label>Hobbies and interests</Form.Label>
-                <Form.Control type="text" placeholder="Swimming,reading,dancing,.." />
+                <Form.Control type="text" name="hobbies" placeholder="Swimming,reading,dancing,.."  onChange={this.handleOnChange}/>
                 </Form.Group>
             </Form.Row>
 
@@ -70,24 +100,24 @@ export default function Formfield() {
             <Form.Row>
                 <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>Full Name</Form.Label>
-                <Form.Control type="text" placeholder="Rumin"/>
+                <Form.Control type="text" name="fullname"  placeholder="Rumin" onChange={this.handleOnChange}/>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridCity">
                 <Form.Label>Contact Number</Form.Label>
-                <Form.Control type="tel" placeholder="9876543210"/>
+                <Form.Control type="tel"  name="telephone" placeholder="9876543210" onChange = {this.onHandleTelephoneChange}/>
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formGridZip">
                 <Form.Label>Relationship</Form.Label>
-                <Form.Control type="text" placeholder="Friend"/>
+                <Form.Control type="text" name="relationship" placeholder="Friend" onChange={this.handleOnChange} />
                 </Form.Group>
             </Form.Row>
 
             <Button variant="success" type="submit">
                 Save
             </Button>
-    </Form>
+         </Form>
             </div>
     
         </div>
