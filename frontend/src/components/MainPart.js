@@ -32,42 +32,45 @@ export default class Formfield extends Component {
         });
     };
     
-    return (
-        <div className="formfield-maindiv" style={{paddingTop:'30px',display:'inline-block'}}>
-            <div className="first">
-                <ProfileIcon/>
-            </div>
-            <div className="second">
-            <Form >
-                <div>
-                <Form.Row>
-                    <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>First Name</Form.Label>
-                    <Form.Control type="text" name="firstname" placeholder="First name" onChange={this.handleOnChange} />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control type="text" name="lastname" placeholder="Last Name" onChange={this.handleOnChange}/>
-                    </Form.Group>
-                </Form.Row>
-                <Form.Row>
-                    <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>Mobile Number</Form.Label>
-                    <Form.Control type="tel" name="telephone" placeholder="Mobile Number"  onChange = {this.onHandleTelephoneChange} />
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" name="email" placeholder="E-mail" onChange={this.handleOnChange}/>
-                    </Form.Group>
-                </Form.Row>
+    render(){
+        return (
+            <div className="formfield-maindiv" style={{paddingTop:'30px',display:'inline-block'}}>
+                <div className="first">
+                    <ProfileIcon/>
                 </div>
-            
-            </Form>
+                <div className="second">
+                <Form >
+                    <div>
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="formGridCity">
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control type="text" name="firstname" placeholder="First name" onChange={this.handleOnChange} />
+                        </Form.Group>
+    
+                        <Form.Group as={Col} controlId="formGridCity">
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control type="text" name="lastname" placeholder="Last Name" onChange={this.handleOnChange}/>
+                        </Form.Group>
+                    </Form.Row>
+                    <Form.Row>
+                        <Form.Group as={Col} controlId="formGridCity">
+                        <Form.Label>Mobile Number</Form.Label>
+                        <Form.Control type="tel" name="telephone" placeholder="Mobile Number"  onChange = {this.onHandleTelephoneChange} />
+                        </Form.Group>
+    
+                        <Form.Group as={Col} controlId="formGridCity">
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type="email" name="email" placeholder="E-mail" onChange={this.handleOnChange}/>
+                        </Form.Group>
+                    </Form.Row>
+                    </div>
+                
+                </Form>
+            </div>
         </div>
-    </div>
-            
-    )
-}
+                
+        )
+    }
+    
+    }
 
